@@ -1,0 +1,151 @@
+<router-outlet></router-outlet>
+<h1 style="text-align:center">Welcome to Registration Page</h1>
+<section class="signup-form">
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" (ngSubmit)= "f.form.valid && submit()" #f="ngForm">
+      <mat-form-field >
+          <input type="First Name" 
+          matInput 
+          placeholder="Your First Name" 
+          [(ngModel)]="register.first_name"
+          first_name
+          required
+          >
+          
+      </mat-form-field>
+      <mat-form-field>
+        <input type="Last Name" 
+        matInput 
+        placeholder="Your Last Name" 
+        [(ngModel)]="register.last_name"
+        last_name
+        required
+        >
+        
+    </mat-form-field>
+    <mat-form-field>
+      <input type="Company Name" 
+      matInput 
+      placeholder="Your Company Name" 
+      [(ngModel)]="register.company_name"
+      company_name
+      required
+      >
+      
+  </mat-form-field>
+ 
+    <mat-form-field>
+      <input type="Email Id " 
+      matInput 
+      placeholder="Your Email Id " 
+      [(ngModel)]="register.email_id"
+      email_id
+      required
+      >
+      
+      
+  
+    </mat-form-field>
+    <mat-form-field>
+      <input type="Phone number" 
+      matInput 
+      placeholder="Your Phone number" 
+      [(ngModel)]="register.phone_number"
+      phone_number
+      required
+      >
+      
+  </mat-form-field>
+      <mat-form-field hintLabel="Should be 6 character long">
+          <input type="Password" 
+          matInput 
+          placeholder="Your Password" 
+          [(ngModel)]="register.password"
+          required
+          min-length="6"
+          >
+          
+      </mat-form-field> 
+      <mat-form-field>
+        <input type="Confirm Password" 
+        matInput 
+        placeholder="Confirm Password" 
+        pattern="{{register.password}}"
+        [(ngModel)]="register.confirm_password"
+        #cpass="ngModel"
+        required
+        min-length="6"
+       
+        >
+        <span class="text-danger" *ngIf ="f.submitted && cpass.errors?.pattern" >Password and confirm password doesn't match</span>
+        
+    </mat-form-field> 
+     
+        
+            
+         
+      <button type="submit" mat-raised-button color="primary" (click)="newregister()">Submit</button>
+  
+  </form>
+  <br><br><br><br>
+  <h1 style="text-align:center">Welcome to Login Page</h1>
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <mat-form-field>
+      <input type="Email Id " 
+      matInput 
+      placeholder="Your Email Id " 
+      [(ngModel)]="input.email_id"
+      email_id
+      required
+      >
+      
+      
+  
+    </mat-form-field>
+    <mat-form-field>
+      <input type="Password" 
+      matInput 
+      placeholder="Your Password" 
+      [(ngModel)]="input.password"
+      required
+      min-length="6"
+      >
+      
+  </mat-form-field>
+  <a routerLink="#" (click)="onforgot()">Forgot Password</a>
+  <button type="submit" mat-raised-button color="primary" (click)="onlogin()">Login</button>
+</form>
+
+<br><br><br><br>
+  <h1 style="text-align:center">Update Info</h1>
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <mat-form-field>
+      <input type="first_name" 
+      matInput 
+      placeholder="Your First Name " 
+      [(ngModel)]="registers.first_name"
+      first_name
+      required
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="last_name" 
+      matInput 
+      placeholder="Your Last Name " 
+      [(ngModel)]="registers.last_name"
+      last_name
+      required
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input type="phone_number" 
+      matInput 
+      placeholder="Your Phone Number " 
+      [(ngModel)]="registers.phone_number"
+      last_name
+      required
+      >
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary" (click)="update()">Update</button>
+    </form>
+</section>
